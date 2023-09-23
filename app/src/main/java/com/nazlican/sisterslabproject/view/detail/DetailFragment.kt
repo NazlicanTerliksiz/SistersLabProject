@@ -6,15 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.nazlican.sisterslabproject.R
+import com.nazlican.sisterslabproject.common.viewBinding
+import com.nazlican.sisterslabproject.databinding.FragmentBagBinding
+import com.nazlican.sisterslabproject.databinding.FragmentDetailBinding
 
-class DetailFragment : Fragment() {
+class DetailFragment : Fragment(R.layout.fragment_detail) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail, container, false)
+    private val binding by viewBinding(FragmentDetailBinding::bind)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 
 }
