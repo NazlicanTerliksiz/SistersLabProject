@@ -1,7 +1,6 @@
 package com.nazlican.sisterslabproject.data.model
 
-data class GetCartRequest(
+data class AddToCart(
     val message: String,
-    val products: List<ProductXXX>,
     val status: Int
 )

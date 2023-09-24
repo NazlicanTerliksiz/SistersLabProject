@@ -16,7 +16,6 @@ class DetailFragmentViewModel : ViewModel(){
     private var job: Job? = null
 
     val detailLiveData = MutableLiveData<ProductXX?>()
-    val retrofitModule = RetrofitModule()
     val productRepository = ProductRepository()
 
 

@@ -25,17 +25,17 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun observe() {
         viewModel.productLiveData.observe(viewLifecycleOwner) {
-            if(it != null){
-            adapter = ProductAdapter(it, ::homeToDetail)
+            if (it != null) {
+                adapter = ProductAdapter(it, ::homeToDetail)
                 binding.productRv.adapter = adapter
                 adapter.notifyDataSetChanged()
-            }else{
+            } else {
                 Snackbar.make(requireView(), "liste boş", Snackbar.LENGTH_LONG).show()
             }
         }
     }
 
-    private fun homeToDetail(id:Int){
+    private fun homeToDetail(id: Int) {
         val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(id)
         findNavController().navigate(action)
     }

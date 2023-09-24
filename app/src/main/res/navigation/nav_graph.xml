@@ -14,9 +14,6 @@
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_bagFragment2"
-            app:destination="@id/bagFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -28,8 +25,8 @@
             app:argType="integer" />
     </fragment>
     <fragment
-        android:id="@+id/bagFragment"
-        android:name="com.nazlican.sisterslabproject.ui.bag.BagFragment"
-        android:label="fragment_bag"
-        tools:layout="@layout/fragment_bag" />
+        android:id="@+id/cartFragment"
+        android:name="com.nazlican.sisterslabproject.ui.cart.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
 </navigation>

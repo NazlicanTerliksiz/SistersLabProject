@@ -16,6 +16,7 @@ class HomeFragmentViewModel : ViewModel() {
     val productLiveData = MutableLiveData<List<ProductX>?>()
     val productRepository = ProductRepository()
 
+
     init {
         getProducts()
     }

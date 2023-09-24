@@ -1,7 +1,6 @@
 package com.nazlican.sisterslabproject.data.model
 
-data class DetailRequest(
+data class DeleteFromCart(
     val message: String,
-    val product: ProductXX,
     val status: Int
 )

@@ -7,7 +7,7 @@
         android:iconTint="@color/white"
         android:iconTintMode="src_atop"/>
     <item
-        android:id="@+id/bagFragment"
+        android:id="@+id/cartFragment"
         android:icon="@drawable/shopping_cart"
         android:iconTint="@color/white"/>
 </menu>
