@@ -9,13 +9,13 @@
 
     <!-- Height Size -->
     <dimen name="height_100dp">100dp</dimen>
-    <dimen name="height_48dp">48dp</dimen>
-    <dimen name="height_84dp">84dp</dimen>
+    <dimen name="height_32dp">32dp</dimen>
     <dimen name="height_350dp">350dp</dimen>
+    <dimen name="height_84dp">84dp</dimen>
 
     <!-- Width Size -->
     <dimen name="width_2dp">2dp</dimen>
-    <dimen name="width_48dp">48dp</dimen>
+    <dimen name="width_32dp">32dp</dimen>
     <dimen name="width_84dp">84dp</dimen>
 
     <!-- Text Size -->

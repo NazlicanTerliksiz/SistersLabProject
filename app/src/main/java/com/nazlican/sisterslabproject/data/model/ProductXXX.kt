@@ -1,5 +1,6 @@
 package com.nazlican.sisterslabproject.data.model
-data class ProductXX(
+
+data class ProductXXX(
     val category: String,
     val count: Int,
     val description: String,
@@ -9,7 +10,7 @@ data class ProductXX(
     val imageTwo: String,
     val price: Double,
     val rate: Double,
-    val salePrice: Int,
+    val salePrice: Double,
     val saleState: Boolean,
     val title: String
 )
