@@ -1,11 +1,8 @@
-package com.nazlican.sisterslabproject.view.bag
+package com.nazlican.sisterslabproject.ui.bag
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.lifecycle.ViewModel
 import com.nazlican.sisterslabproject.R
 import com.nazlican.sisterslabproject.common.viewBinding
 import com.nazlican.sisterslabproject.databinding.FragmentBagBinding

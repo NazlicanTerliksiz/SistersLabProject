@@ -3,19 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment2">
+    app:startDestination="@id/homeFragment">
+
+
     <fragment
-        android:id="@+id/homeFragment2"
-        android:name="com.nazlican.sisterslabproject.view.home.HomeFragment"
+        android:id="@+id/homeFragment"
+        android:name="com.nazlican.sisterslabproject.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment2_to_detailFragment"
+            android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.nazlican.sisterslabproject.view.detail.DetailFragment"
+        android:name="com.nazlican.sisterslabproject.ui.detail.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>
