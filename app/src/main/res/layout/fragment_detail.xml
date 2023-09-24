@@ -31,6 +31,19 @@
         app:layout_constraintTop_toBottomOf="@id/productDetailIv" />
 
     <TextView
+        android:id="@+id/descriptionTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="description"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_16sp"
+        android:textColor="@color/darkBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceTv"
+        android:layout_marginTop="@+id/productDetailtv" />
+
+    <TextView
         android:id="@+id/priceTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,18 +56,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/productDetailtv" />
 
-    <TextView
-        android:id="@+id/descriptionTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="description"
-        android:textAlignment="center"
-        android:textSize="@dimen/text_size_16sp"
-        android:textColor="@color/darkBlue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/priceTv"
-        android:layout_marginTop="@dimen/margin_8dp" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
