@@ -22,6 +22,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/homeToolbar"
+        app:title=""
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -30,5 +31,6 @@
         app:layout_constraintBottom_toTopOf="@+id/productRv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/darkBlue"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
