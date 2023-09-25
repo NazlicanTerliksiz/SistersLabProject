@@ -42,7 +42,4 @@ class RetrofitModule {
         .build()
         .create(ProductApi::class.java)
 
-    //fun provideProductAppService(retrofit: Retrofit): ProductApi {
-    //    return retrofit.create(ProductApi::class.java)
-    //}
 }

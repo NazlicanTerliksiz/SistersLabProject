@@ -1,8 +1,8 @@
 package com.nazlican.sisterslabproject.ui.cart
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.nazlican.sisterslabproject.data.model.DeleteFromCart
 import com.nazlican.sisterslabproject.data.model.ProductX
 import com.nazlican.sisterslabproject.data.repo.ProductRepository
 import kotlinx.coroutines.CoroutineScope
@@ -15,6 +15,7 @@ class CartFragmentViewModel: ViewModel(){
     private var job: Job? = null
 
     val cartLiveData = MutableLiveData<List<ProductX>?>()
+    val deleteLiveData = MutableLiveData<DeleteFromCart?>()
     private val productRepository = ProductRepository()
 
 
@@ -23,11 +24,24 @@ class CartFragmentViewModel: ViewModel(){
             val result =productRepository.getCardProduct()
             if (result.isSuccessful) {
                 result.body()?.let {cartProductList ->
-                    Log.d("if içi", cartProductList.toString())
                     cartLiveData.postValue(cartProductList.products)
                 }
             }else{
                 cartLiveData.postValue(null)
+            }
+        }
+    }
+
+    fun deleteFromCart(deleteFromCart: DeleteFromCart) {
+        job = CoroutineScope(Dispatchers.IO).launch {
+            val result =productRepository.deleteFromCart(deleteFromCart)
+            if (result.isSuccessful) {
+                result.body()?.let {cartProductList ->
+                    cartProducts()
+                    deleteLiveData.postValue(result.body())
+                }
+            }else{
+                deleteLiveData.postValue(null)
             }
         }
     }

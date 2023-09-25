@@ -8,9 +8,10 @@ import com.nazlican.sisterslabproject.databinding.CartCardDesignBinding
 import com.nazlican.sisterslabproject.util.downloadFromUrl
 
 class CartProductAdapter(
-    private val cartProductList: List<ProductX>
+    private val onItemClickListener: (Int) -> Unit
     ):
     RecyclerView.Adapter<CartProductAdapter.RowHolder>() {
+    private val cartProductList = ArrayList<ProductX>()
 
     inner class RowHolder(private val binding: CartCardDesignBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -19,6 +20,9 @@ class CartProductAdapter(
                 bagProductNameTv.text = cartProduct.title
                 bagProductPriceTv.text = cartProduct.price.toString()
                 bagProductIv.downloadFromUrl(cartProduct.imageOne)
+                deleteIv.setOnClickListener {
+                    onItemClickListener.invoke(cartProduct.id)
+                }
             }
         }
     }
@@ -36,6 +40,12 @@ class CartProductAdapter(
 
     override fun getItemCount(): Int {
         return cartProductList.size
+    }
+
+    fun updateList(updateList:List<ProductX>){
+        cartProductList.clear()
+        cartProductList.addAll(updateList)
+        notifyDataSetChanged()
     }
 
 }

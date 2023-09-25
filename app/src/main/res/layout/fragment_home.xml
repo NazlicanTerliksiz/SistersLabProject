@@ -7,6 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/darkBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryHint="product"
+        style="@style/search_text_style"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productRv"
         android:layout_width="0dp"
@@ -14,23 +26,10 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeToolbar"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
         app:spanCount="2"
-        tools:listitem="@layout/product_card_design" />
+        tools:listitem="@layout/product_card_design"
+        />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/homeToolbar"
-        app:title=""
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toTopOf="@+id/productRv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/darkBlue"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

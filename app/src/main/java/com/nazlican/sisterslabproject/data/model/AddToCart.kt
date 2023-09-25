@@ -1,6 +1,6 @@
 package com.nazlican.sisterslabproject.data.model
 
 data class AddToCart(
-    val message: String,
-    val status: Int
+    val userId: String,
+    val productId: Int
 )

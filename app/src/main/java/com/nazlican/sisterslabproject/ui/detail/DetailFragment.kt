@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.nazlican.sisterslabproject.R
 import com.nazlican.sisterslabproject.common.viewBinding
+import com.nazlican.sisterslabproject.data.model.AddToCart
 import com.nazlican.sisterslabproject.databinding.FragmentDetailBinding
 import com.nazlican.sisterslabproject.util.downloadFromUrl
 
@@ -26,6 +28,11 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         Log.d("id", id.toString())
         viewModel.detailProducts(id)
         observe()
+
+        binding.AddToCartbutton.setOnClickListener {
+            viewModel.addToCart(AddToCart("b3sa6dj721312ssadas21d" ,id))
+            cartObserve()
+        }
     }
     private fun observe() {
         viewModel.detailLiveData.observe(viewLifecycleOwner) {
@@ -36,6 +43,15 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
                 binding.productDetailIv.downloadFromUrl(it.imageOne)
             }else{
                 Snackbar.make(requireView(), "liste boş", Snackbar.LENGTH_LONG).show()
+            }
+        }
+    }
+    private fun cartObserve() {
+        viewModel.addCartLiveData.observe(viewLifecycleOwner) {
+            if (it != null) {
+                findNavController().popBackStack()
+            } else {
+                Snackbar.make(requireView(), "Added to cart!", Snackbar.LENGTH_SHORT).show()
             }
         }
     }

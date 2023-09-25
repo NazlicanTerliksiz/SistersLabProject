@@ -3,9 +3,9 @@ package com.nazlican.sisterslabproject.ui.detail
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.nazlican.sisterslabproject.data.model.AddToCart
 import com.nazlican.sisterslabproject.data.model.ProductXX
 import com.nazlican.sisterslabproject.data.repo.ProductRepository
-import com.nazlican.sisterslabproject.di.RetrofitModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -17,6 +17,7 @@ class DetailFragmentViewModel : ViewModel(){
 
     val detailLiveData = MutableLiveData<ProductXX?>()
     val productRepository = ProductRepository()
+    var addCartLiveData = MutableLiveData<AddToCart?>()
 
 
     fun detailProducts(id:Int) {
@@ -29,6 +30,19 @@ class DetailFragmentViewModel : ViewModel(){
                 }
             }else{
                 detailLiveData.postValue(null)
+            }
+        }
+    }
+
+    fun addToCart(addToCart: AddToCart) {
+        job = CoroutineScope(Dispatchers.IO).launch {
+            val result =productRepository.addToCart(addToCart)
+            if (result.isSuccessful) {
+                result.body()?.let {
+                    addCartLiveData.postValue(result.body())
+                }
+            }else{
+                addCartLiveData.postValue(null)
             }
         }
     }

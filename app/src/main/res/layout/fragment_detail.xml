@@ -55,6 +55,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/priceTv" />
 
+    <Button
+        android:id="@+id/AddToCartbutton"
+        android:layout_width="141dp"
+        android:layout_height="39dp"
+        android:text="Add to Cart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionTv"
+        android:layout_marginTop="@dimen/margin_8dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

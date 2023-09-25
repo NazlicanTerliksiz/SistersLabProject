@@ -63,7 +63,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/bagProductNameTv" />
 
                 <ImageView
-                    android:id="@+id/favoriteScreenFavoriteIv"
+                    android:id="@+id/deleteIv"
                     android:layout_width="@dimen/width_32dp"
                     android:layout_height="@dimen/height_32dp"
                     app:srcCompat="@drawable/delete"
