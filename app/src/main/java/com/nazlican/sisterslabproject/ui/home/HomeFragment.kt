@@ -4,18 +4,22 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.nazlican.sisterslabproject.R
 import com.nazlican.sisterslabproject.adapter.ProductAdapter
 import com.nazlican.sisterslabproject.common.viewBinding
 import com.nazlican.sisterslabproject.databinding.FragmentHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val binding by viewBinding(FragmentHomeBinding::bind)
     private lateinit var adapter: ProductAdapter
-    private val viewModel: HomeFragmentViewModel by lazy { HomeFragmentViewModel() }
+    private val viewModel: HomeFragmentViewModel by viewModels()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -61,6 +65,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
+
     private fun homeToDetail(id: Int) {
         val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(id)
         findNavController().navigate(action)
@@ -80,12 +85,4 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         })
     }
-
-    /*
-    private fun hideSoftWareKeyBoard() {
-        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(binding.ProductTil.windowToken, 0)
-    }
-     */
-
 }

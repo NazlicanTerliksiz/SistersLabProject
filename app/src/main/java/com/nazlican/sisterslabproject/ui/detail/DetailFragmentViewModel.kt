@@ -6,17 +6,19 @@ import androidx.lifecycle.ViewModel
 import com.nazlican.sisterslabproject.data.model.AddToCart
 import com.nazlican.sisterslabproject.data.model.ProductXX
 import com.nazlican.sisterslabproject.data.repo.ProductRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class DetailFragmentViewModel : ViewModel(){
+@HiltViewModel
+class DetailFragmentViewModel @Inject constructor(var productRepository : ProductRepository) : ViewModel(){
 
     private var job: Job? = null
 
     val detailLiveData = MutableLiveData<ProductXX?>()
-    val productRepository = ProductRepository()
     var addCartLiveData = MutableLiveData<AddToCart?>()
 
 

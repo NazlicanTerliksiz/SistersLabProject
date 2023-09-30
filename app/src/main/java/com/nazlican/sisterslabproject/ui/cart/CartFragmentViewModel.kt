@@ -5,19 +5,20 @@ import androidx.lifecycle.ViewModel
 import com.nazlican.sisterslabproject.data.model.DeleteFromCart
 import com.nazlican.sisterslabproject.data.model.ProductX
 import com.nazlican.sisterslabproject.data.repo.ProductRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CartFragmentViewModel: ViewModel(){
+@HiltViewModel
+class CartFragmentViewModel @Inject constructor(var productRepository : ProductRepository) : ViewModel(){
 
     private var job: Job? = null
 
     val cartLiveData = MutableLiveData<List<ProductX>?>()
     val deleteLiveData = MutableLiveData<DeleteFromCart?>()
-    private val productRepository = ProductRepository()
-
 
     fun cartProducts() {
         job = CoroutineScope(Dispatchers.IO).launch {

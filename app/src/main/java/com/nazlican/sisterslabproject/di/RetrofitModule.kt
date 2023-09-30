@@ -3,15 +3,25 @@ package com.nazlican.sisterslabproject.di
 import com.nazlican.sisterslabproject.data.network.ProductApi
 import com.nazlican.sisterslabproject.util.Constants.BASE_URL
 import com.nazlican.sisterslabproject.util.Constants.STORE
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Protocol
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class RetrofitModule {
+@Module
+@InstallIn(SingletonComponent::class)
+class RetrofitModule @Inject constructor() {
 
+    @Provides
+    @Singleton
     fun getInterceptor(): Interceptor {
         return Interceptor {
             val request = it.request().newBuilder()
@@ -22,6 +32,8 @@ class RetrofitModule {
         }
     }
 
+    @Provides
+    @Singleton
     fun getOkHttpClient(
         interceptor: Interceptor
     ): OkHttpClient {

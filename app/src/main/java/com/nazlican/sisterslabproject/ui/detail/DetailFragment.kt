@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
@@ -12,12 +13,13 @@ import com.nazlican.sisterslabproject.common.viewBinding
 import com.nazlican.sisterslabproject.data.model.AddToCart
 import com.nazlican.sisterslabproject.databinding.FragmentDetailBinding
 import com.nazlican.sisterslabproject.util.downloadFromUrl
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class DetailFragment : Fragment(R.layout.fragment_detail) {
 
     private val binding by viewBinding(FragmentDetailBinding::bind)
-    private val viewModel: DetailFragmentViewModel by lazy { DetailFragmentViewModel() }
+    private val viewModel: DetailFragmentViewModel by viewModels()
     private val args: DetailFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

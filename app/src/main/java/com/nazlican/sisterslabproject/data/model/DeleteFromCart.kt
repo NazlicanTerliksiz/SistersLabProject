@@ -1,5 +1,5 @@
 package com.nazlican.sisterslabproject.data.model
 
 data class DeleteFromCart(
-    val id: Int,
+    val id: Int?,
 )

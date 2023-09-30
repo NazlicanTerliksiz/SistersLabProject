@@ -5,4 +5,5 @@
     <string name="product">product</string>
     <string name="price">price</string>
     <string name="product_name">Product Name</string>
+    <string name="add_to_cart">Add to Cart</string>
 </resources>
