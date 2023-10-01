@@ -48,7 +48,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="description"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
+        android:layout_marginLeft="@dimen/margin_32dp"
         android:textSize="@dimen/text_size_16sp"
         android:textColor="@color/darkBlue"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descriptionTv"
-        android:layout_marginTop="@dimen/margin_8dp"/>
+        android:layout_marginTop="@dimen/margin_32dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

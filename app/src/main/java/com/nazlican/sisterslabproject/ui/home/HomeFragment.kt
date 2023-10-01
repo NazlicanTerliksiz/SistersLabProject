@@ -11,6 +11,7 @@ import com.nazlican.sisterslabproject.R
 import com.nazlican.sisterslabproject.adapter.ProductAdapter
 import com.nazlican.sisterslabproject.common.viewBinding
 import com.nazlican.sisterslabproject.databinding.FragmentHomeBinding
+import com.nazlican.sisterslabproject.ui.detail.DetailFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,7 +19,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val binding by viewBinding(FragmentHomeBinding::bind)
     private lateinit var adapter: ProductAdapter
-    private val viewModel: HomeFragmentViewModel by viewModels()
+    private val viewModel:HomeFragmentViewModel by viewModels()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -27,21 +28,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         viewModel.getProducts()
         search()
         observe()
-
-
-        /*
-        binding.ProductTil.setEndIconOnClickListener {
-           hideSoftWareKeyBoard()
-            if (binding.ProductTie.text.toString().isEmpty()) {
-                viewModel.productLiveData
-            } else {
-                viewModel.getProducts(binding.ProductTie.text.toString())
-            }
-        }
-
-         */
-
-
     }
 
     private fun observe() {
@@ -64,7 +50,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
         }
     }
-
 
     private fun homeToDetail(id: Int) {
         val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(id)

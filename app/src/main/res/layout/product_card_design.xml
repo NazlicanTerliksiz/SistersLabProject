@@ -3,14 +3,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_4dp"
+    android:layout_margin="@dimen/margin_8dp"
     android:background="@drawable/card_corners"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_4dp"
+        android:layout_margin="@dimen/margin_8dp"
         app:contentPadding="@dimen/padding_8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,7 +24,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_launcher_background"/>
+                app:srcCompat="@drawable/ic_launcher_background"
+                android:layout_marginTop="@dimen/margin_32dp"
+                android:layout_marginBottom="@dimen/margin_32dp"/>
 
             <TextView
                 android:id="@+id/productTv"
@@ -36,8 +38,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/productIv"
-                android:layout_marginTop="@dimen/margin_8dp"
-                android:layout_marginBottom="@dimen/margin_8dp"/>
+                android:layout_marginTop="@dimen/margin_32dp"
+                android:layout_marginBottom="@dimen/margin_32dp"/>
 
             <TextView
                 android:id="@+id/priceTv"
@@ -50,8 +52,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/productTv"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginTop="@dimen/margin_8dp"
-                android:layout_marginBottom="@dimen/margin_8dp"/>
+                android:layout_marginTop="@dimen/margin_32dp"
+                android:layout_marginBottom="@dimen/margin_32dp"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

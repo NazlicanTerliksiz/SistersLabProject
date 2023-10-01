@@ -1,6 +1,6 @@
 package com.nazlican.sisterslabproject.ui.home
 
-import android.util.Log
+import  android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.nazlican.sisterslabproject.data.model.ProductX
@@ -34,6 +34,8 @@ class HomeFragmentViewModel @Inject constructor(var productRepository : ProductR
                     println("deneme $productList")
                     productLiveData.postValue(productList.products)
                 }
+            }else{
+                productLiveData.postValue(null)
             }
         }
     }
