@@ -17,7 +17,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:queryHint="product"
-        style="@style/search_text_style"/>
+        app:searchIcon="@drawable/search"
+        style="@style/search_text_style"
+        app:queryBackground="@color/white"
+        app:closeIcon="@drawable/baseline_close_24"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productRv"
@@ -26,10 +29,11 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintVertical_bias="0.0"
         app:spanCount="2"
-        tools:listitem="@layout/product_card_design"
-        />
+        tools:listitem="@layout/product_card_design" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
