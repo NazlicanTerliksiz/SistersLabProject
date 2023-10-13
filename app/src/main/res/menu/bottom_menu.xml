@@ -7,6 +7,10 @@
         android:iconTint="@color/white"
         android:iconTintMode="src_atop"/>
     <item
+        android:id="@+id/favoriteFragment"
+        android:icon="@drawable/favorite2"
+        android:iconTint="@color/white"/>
+    <item
         android:id="@+id/cartFragment"
         android:icon="@drawable/shopping_cart"
         android:iconTint="@color/white"/>

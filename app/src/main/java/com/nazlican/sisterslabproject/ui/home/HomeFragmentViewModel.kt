@@ -11,9 +11,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
-@HiltViewModel
-class HomeFragmentViewModel @Inject constructor(var productRepository : ProductRepository) : ViewModel() {
+class HomeFragmentViewModel (var productRepository: ProductRepository) :
+    ViewModel() {
 
     private var job: Job? = null
 
@@ -30,27 +29,33 @@ class HomeFragmentViewModel @Inject constructor(var productRepository : ProductR
         job = CoroutineScope(Dispatchers.IO).launch {
             val result = productRepository.getProduct()
             if (result.isSuccessful) {
-                result.body()?.let {productList ->
+                result.body()?.let { productList ->
                     println("deneme $productList")
                     productLiveData.postValue(productList.products)
                 }
-            }else{
+            } else {
                 productLiveData.postValue(null)
             }
         }
     }
 
-    fun searchFromProduct(query:String) {
+    fun searchFromProduct(query: String) {
         job = CoroutineScope(Dispatchers.IO).launch {
-            val result =productRepository.searchFromProduct(query)
+            val result = productRepository.searchFromProduct(query)
             if (result.isSuccessful) {
-                result.body()?.let {products ->
+                result.body()?.let { products ->
                     Log.d("if içi", products.toString())
                     searchLiveData.postValue(products.products)
                 }
-            }else{
+            } else {
                 searchLiveData.postValue(null)
             }
+        }
+    }
+
+    fun addToFavorite(productX: ProductX) {
+        job = CoroutineScope(Dispatchers.IO).launch {
+            productRepository.addToFavorite(productX)
         }
     }
 }

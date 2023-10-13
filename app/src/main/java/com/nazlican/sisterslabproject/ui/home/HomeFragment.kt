@@ -14,12 +14,11 @@ import com.nazlican.sisterslabproject.databinding.FragmentHomeBinding
 import com.nazlican.sisterslabproject.ui.detail.DetailFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val binding by viewBinding(FragmentHomeBinding::bind)
     private lateinit var adapter: ProductAdapter
-    private val viewModel:HomeFragmentViewModel by viewModels()
+    private val viewModel: HomeFragmentViewModel by viewModels()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,7 +32,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun observe() {
         viewModel.productLiveData.observe(viewLifecycleOwner) {
             if (it != null) {
-                adapter = ProductAdapter(it, ::homeToDetail)
+                adapter = ProductAdapter(it, ::homeToDetail){
+                    viewModel.addToFavorite(it)
+                }
                 binding.productRv.adapter = adapter
                 adapter.notifyDataSetChanged()
             } else {
@@ -42,7 +43,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
         viewModel.searchLiveData.observe(viewLifecycleOwner) {
             if (it != null) {
-                adapter = ProductAdapter(it, ::homeToDetail)
+                adapter = ProductAdapter(it, ::homeToDetail){
+                    viewModel.addToFavorite(it)
+                }
                 binding.productRv.adapter = adapter
                 adapter.notifyDataSetChanged()
             } else {

@@ -11,9 +11,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
-@HiltViewModel
-class CartFragmentViewModel @Inject constructor(var productRepository : ProductRepository) : ViewModel(){
+class CartFragmentViewModel (var productRepository: ProductRepository) :
+    ViewModel() {
 
     private var job: Job? = null
 
@@ -22,12 +21,12 @@ class CartFragmentViewModel @Inject constructor(var productRepository : ProductR
 
     fun cartProducts() {
         job = CoroutineScope(Dispatchers.IO).launch {
-            val result =productRepository.getCardProduct()
+            val result = productRepository.getCardProduct()
             if (result.isSuccessful) {
-                result.body()?.let {cartProductList ->
+                result.body()?.let { cartProductList ->
                     cartLiveData.postValue(cartProductList.products)
                 }
-            }else{
+            } else {
                 cartLiveData.postValue(null)
             }
         }
@@ -35,13 +34,13 @@ class CartFragmentViewModel @Inject constructor(var productRepository : ProductR
 
     fun deleteFromCart(deleteFromCart: DeleteFromCart) {
         job = CoroutineScope(Dispatchers.IO).launch {
-            val result =productRepository.deleteFromCart(deleteFromCart)
+            val result = productRepository.deleteFromCart(deleteFromCart)
             if (result.isSuccessful) {
-                result.body()?.let {cartProductList ->
+                result.body()?.let { cartProductList ->
                     cartProducts()
                     deleteLiveData.postValue(result.body())
                 }
-            }else{
+            } else {
                 deleteLiveData.postValue(null)
             }
         }

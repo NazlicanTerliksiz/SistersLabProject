@@ -15,13 +15,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton
+class RetrofitModule () {
 
-@Module
-@InstallIn(SingletonComponent::class)
-class RetrofitModule @Inject constructor() {
-
-    @Provides
-    @Singleton
     fun getInterceptor(): Interceptor {
         return Interceptor {
             val request = it.request().newBuilder()
@@ -32,8 +27,6 @@ class RetrofitModule @Inject constructor() {
         }
     }
 
-    @Provides
-    @Singleton
     fun getOkHttpClient(
         interceptor: Interceptor
     ): OkHttpClient {

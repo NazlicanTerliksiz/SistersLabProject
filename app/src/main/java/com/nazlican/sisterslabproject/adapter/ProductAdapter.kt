@@ -9,7 +9,8 @@ import com.nazlican.sisterslabproject.util.downloadFromUrl
 
 class ProductAdapter(
     private val productList: List<ProductX>,
-    private val onItemClickListener: (Int) -> Unit
+    private val onItemClickListener: (Int) -> Unit, //detay ekranına gitme
+    private val addToFavoriteClickListener : (ProductX) -> Unit
 ) :
     RecyclerView.Adapter<ProductAdapter.RowHolder>() {
 
@@ -22,6 +23,9 @@ class ProductAdapter(
                 productIv.downloadFromUrl(product.imageOne)
                 root.setOnClickListener {
                     onItemClickListener.invoke(product.id)
+                }
+                favoriteIcon.setOnClickListener {
+                    addToFavoriteClickListener.invoke(product)
                 }
             }
         }

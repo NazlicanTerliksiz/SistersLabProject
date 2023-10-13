@@ -14,8 +14,6 @@ import com.nazlican.sisterslabproject.data.model.AddToCart
 import com.nazlican.sisterslabproject.databinding.FragmentDetailBinding
 import com.nazlican.sisterslabproject.util.downloadFromUrl
 import dagger.hilt.android.AndroidEntryPoint
-
-@AndroidEntryPoint
 class DetailFragment : Fragment(R.layout.fragment_detail) {
 
     private val binding by viewBinding(FragmentDetailBinding::bind)
@@ -32,22 +30,24 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         observe()
 
         binding.AddToCartbutton.setOnClickListener {
-            viewModel.addToCart(AddToCart("b3sa6dj721312ssadas21d" ,id))
+            viewModel.addToCart(AddToCart("b3sa6dj721312ssadas21d", id))
             cartObserve()
         }
     }
+
     private fun observe() {
         viewModel.detailLiveData.observe(viewLifecycleOwner) {
-            if(it != null){
+            if (it != null) {
                 binding.productDetailtv.text = it.title
                 binding.descriptionTv.text = it.description
                 binding.priceTv.text = it.price.toString()
                 binding.productDetailIv.downloadFromUrl(it.imageOne)
-            }else{
+            } else {
                 Snackbar.make(requireView(), "liste boş", Snackbar.LENGTH_LONG).show()
             }
         }
     }
+
     private fun cartObserve() {
         viewModel.addCartLiveData.observe(viewLifecycleOwner) {
             if (it != null) {

@@ -12,9 +12,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
-@HiltViewModel
-class DetailFragmentViewModel @Inject constructor(var productRepository : ProductRepository) : ViewModel(){
+class DetailFragmentViewModel (var productRepository: ProductRepository) :
+    ViewModel() {
 
     private var job: Job? = null
 
@@ -22,15 +21,15 @@ class DetailFragmentViewModel @Inject constructor(var productRepository : Produc
     var addCartLiveData = MutableLiveData<AddToCart?>()
 
 
-    fun detailProducts(id:Int) {
+    fun detailProducts(id: Int) {
         job = CoroutineScope(Dispatchers.IO).launch {
-            val result =productRepository.detailProduct(id)
+            val result = productRepository.detailProduct(id)
             if (result.isSuccessful) {
-                result.body()?.let {products ->
-                 Log.d("if içi", products.toString())
+                result.body()?.let { products ->
+                    Log.d("if içi", products.toString())
                     detailLiveData.postValue(products.product)
                 }
-            }else{
+            } else {
                 detailLiveData.postValue(null)
             }
         }
@@ -38,12 +37,12 @@ class DetailFragmentViewModel @Inject constructor(var productRepository : Produc
 
     fun addToCart(addToCart: AddToCart) {
         job = CoroutineScope(Dispatchers.IO).launch {
-            val result =productRepository.addToCart(addToCart)
+            val result = productRepository.addToCart(addToCart)
             if (result.isSuccessful) {
                 result.body()?.let {
                     addCartLiveData.postValue(result.body())
                 }
-            }else{
+            } else {
                 addCartLiveData.postValue(null)
             }
         }

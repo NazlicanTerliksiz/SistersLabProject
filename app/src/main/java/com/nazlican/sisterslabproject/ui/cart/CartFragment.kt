@@ -12,8 +12,6 @@ import com.nazlican.sisterslabproject.common.viewBinding
 import com.nazlican.sisterslabproject.data.model.DeleteFromCart
 import com.nazlican.sisterslabproject.databinding.FragmentCartBinding
 import dagger.hilt.android.AndroidEntryPoint
-
-@AndroidEntryPoint
 class CartFragment : Fragment(R.layout.fragment_cart) {
 
     private val binding by viewBinding(FragmentCartBinding::bind)
@@ -52,7 +50,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
         }
     }
 
-    fun deleteFromCart(id:Int){
+    fun deleteFromCart(id: Int) {
         viewModel.deleteFromCart(DeleteFromCart(id))
     }
 }

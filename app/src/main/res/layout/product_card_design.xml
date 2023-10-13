@@ -18,6 +18,16 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:id="@+id/favoriteIcon"
+                android:src="@drawable/favorite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_marginEnd="@dimen/margin_8dp"/>
+
+            <ImageView
                 android:id="@+id/productIv"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/height_100dp"
